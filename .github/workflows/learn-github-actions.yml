@@ -17,6 +17,7 @@ on: [push]
 
 env:
   AWS_REGION: ap-northeast-1 # set this to your preferred AWS region, e.g. us-west-1
+  AWS_BUCKET: devadmin.scanat.app
 
 ## Groups together all the jobs that run in the learn-github-actions workflow.
 jobs:
@@ -52,13 +53,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: configure aws credentials
+      - name: configure aws credentials and test aws s3
         uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ env.AWS_REGION }}
-
-      - name: aws cli s3 test
         run: |
-          aws s3 ls
+          cd .github/workflows/
+          aws s3 cp learn-github-actions.yml s3://{{env.AWS_BUCKET}}/
+          aws s3 ls s3://{{env.AWS_BUCKET}}/
