@@ -45,13 +45,17 @@ jobs:
       ## Finally, you'll run the bats command with a parameter that outputs the software version.
       - run: bats -v
 
-  set-up-aws-cli:
+  configure-aws-credentials:
     runs-on: ubuntu-latest
 
     steps:
-      - name: download aws-cli
+      - name: configure aws credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: aws cli s3 test
         run: |
-          curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-          unzip awscliv2.zip
-          ./aws/install
-          aws --version
+          aws s3 ls
