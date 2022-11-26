@@ -25,6 +25,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: actions/checkout@v3
+
       - name: configure aws credentials and test aws s3
         uses: aws-actions/configure-aws-credentials@v1
         with:
