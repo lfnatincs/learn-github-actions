@@ -14,7 +14,7 @@ name: learn-github-actions
 ## This is triggered by a push to every branch;
 ## for examples of syntax that runs only on pushes to specific branches, paths, or tags, see "Workflow syntax for GitHub Actions."
 on:
-  workflow_dispatch:
+  workflow_dispatch: [develop]
   push:
     branches: [develop]
 

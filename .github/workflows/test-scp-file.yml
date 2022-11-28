@@ -1,7 +1,7 @@
 name: Test Scp File
 
 on:
-  workflow_dispatch:
+  workflow_dispatch: [main]
   push:
     branches: [main]
 
