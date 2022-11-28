@@ -22,4 +22,5 @@ jobs:
 
       - name: Test Server Login In
         run: |
+          cat ~/.ssh/known_hosts
           ssh -i .ssh/server.pem ${{ env.SERVER_USER }}@${{ env.SERVER_HOST }} "ls"
