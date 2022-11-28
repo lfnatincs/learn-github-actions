@@ -20,12 +20,12 @@ jobs:
     steps:
       - name: Packet Project
         run: |
-          mkdir -p packet/A
-          mkdir -p packet/B
-          mkdir -p packet/C
-          echo ${{ github.sha }} > packet/A/sha
-          echo ${{ github.sha }} > packet/B/sha
-          echo ${{ github.sha }} > packet/C/sha
+          mkdir -p A
+          mkdir -p B
+          mkdir -p C
+          echo ${{ github.sha }} > A/sha
+          echo ${{ github.sha }} > B/sha
+          echo ${{ github.sha }} > C/sha
 
       - name: Upload Packet
         uses: appleboy/scp-action@master
@@ -33,6 +33,6 @@ jobs:
           host: ${{ env.SERVER_HOST }}
           username: ${{ env.SERVER_USER }}
           key: ${{ secrets.AWS_EC2_PRIVATE_KEY }}
-          source: packet/A/
+          source: A,B,C
           target: .packet
           debug: true
