@@ -2,7 +2,7 @@ name: Test Login Server
 
 on:
   push:
-    branches: [develop]
+    branches: [main]
 
 env:
   JAVA_VERSION: "8"
