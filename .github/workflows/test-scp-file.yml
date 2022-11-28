@@ -33,6 +33,6 @@ jobs:
           host: ${{ env.SERVER_HOST }}
           username: ${{ env.SERVER_USER }}
           key: ${{ secrets.AWS_EC2_PRIVATE_KEY }}
-          source: packet/A,packet/B,packet/C
+          source: packet/A/,packet/B/,packet/C/
           target: .packet
           debug: true
