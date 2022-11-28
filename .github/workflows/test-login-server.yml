@@ -17,8 +17,8 @@ jobs:
       - name: Configure Server PEM File
         run: |
           mkdir -p .ssh/
-          echo "test"
-          echo ${{ secrets.AWS_EC2_PRIVATE_KEY }} > .ssh/server.pem
+          echo "${{ secrets.AWS_EC2_PRIVATE_KEY }}" > .ssh/server.pem
+          chmod 600 .ssh/server.pem
 
       - name: Test Server Login In
         run: |
