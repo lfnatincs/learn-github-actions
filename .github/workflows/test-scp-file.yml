@@ -26,7 +26,6 @@ jobs:
           echo ${{ github.sha }} > packet/A/sha
           echo ${{ github.sha }} > packet/B/sha
           echo ${{ github.sha }} > packet/C/sha
-          cd packet
 
       - name: Upload Packet
         uses: appleboy/scp-action@master
@@ -34,6 +33,7 @@ jobs:
           host: ${{ env.SERVER_HOST }}
           username: ${{ env.SERVER_USER }}
           key: ${{ secrets.AWS_EC2_PRIVATE_KEY }}
-          source: A,B,C
+          source: packet/A,packet/B,packet/C
           target: .packet
+          strip_components: 1
           debug: true
