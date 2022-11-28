@@ -21,4 +21,6 @@ jobs:
           username: ${{ env.SERVER_USER }}
           key: ${{ secrets.AWS_EC2_PRIVATE_KEY }}
           port: 22
-          script: whoami
+          script: |
+            whoami
+            ls -al
