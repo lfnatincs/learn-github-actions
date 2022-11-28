@@ -14,12 +14,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Configure Server PEM File
-        run: |
-          mkdir -p .ssh/
-          echo "${{ secrets.AWS_EC2_PRIVATE_KEY }}" > .ssh/server.pem
-          chmod 600 .ssh/server.pem
-
-      - name: Test Server Login In
-        run: |
-          ssh -T -i .ssh/server.pem ${{ env.SERVER_USER }}@${{ env.SERVER_HOST }} "ls"
+      - name: executing remote ssh commands using ssh key
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ env.SERVER_HOST }}
+          username: ${{ env.SERVER_USER }}
+          key: ${{ secrets.AWS_EC2_PRIVATE_KEY }}
+          port: 22
+          script: whoami
