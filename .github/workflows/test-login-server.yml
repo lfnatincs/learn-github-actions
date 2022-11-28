@@ -3,7 +3,7 @@ name: Test Login Server
 on:
   workflow_dispatch:
   push:
-    branches: [develop]
+    branches: [main]
 
 permissions:
   contents: read
@@ -24,7 +24,5 @@ jobs:
           host: ${{ env.SERVER_HOST }}
           username: ${{ env.SERVER_USER }}
           key: ${{ secrets.AWS_EC2_PRIVATE_KEY }}
-          port: 22
           script: |
-            whoami
-            ls -al
+            bash ~/.packet/date.sh
