@@ -22,5 +22,5 @@ jobs:
 
       - name: Test Server Login In
         run: |
-          cat ~/.ssh/known_hosts
+          ssh-keygen -R ${{ env.SERVER_HOST }}
           ssh -i .ssh/server.pem ${{ env.SERVER_USER }}@${{ env.SERVER_HOST }} "ls"
