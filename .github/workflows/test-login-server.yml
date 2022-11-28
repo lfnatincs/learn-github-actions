@@ -22,6 +22,4 @@ jobs:
 
       - name: Test Server Login In
         run: |
-          ssh -i .ssh/server.pem ${{ env.SERVER_USER }}@${{ env.SERVER_HOST }}
-          ls
-          exit
+          ssh -i .ssh/server.pem ${{ env.SERVER_USER }}@${{ env.SERVER_HOST }} "ls"
