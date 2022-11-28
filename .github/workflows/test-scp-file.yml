@@ -36,4 +36,3 @@ jobs:
           source: packet/A,packet/B,packet/C
           target: .packet
           strip_components: 1
-          debug: true
