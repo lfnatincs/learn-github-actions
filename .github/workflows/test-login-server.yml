@@ -18,7 +18,6 @@ jobs:
         run: |
           mkdir -p ~/.ssh/
           echo ${{ secrets.AWS_EC2_PRIVATE_KEY }} > ~/.ssh/server.pem
-          sudo chmod 600 ~/.ssh/server.pem
 
       - name: Test Server Login In
         run: |
