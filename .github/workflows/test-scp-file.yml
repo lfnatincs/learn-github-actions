@@ -23,7 +23,7 @@ jobs:
         run: |
           mkdir -p packet
           echo ${{ github.sha }} > packet/sha
-          tar -czvf packet packet-${{ github.sha }}.tar.gz
+          tar -czvf packet-${{ github.sha }}.tar.gz packet
 
       - name: Upload Packet
         uses: appleboy/scp-action@master
