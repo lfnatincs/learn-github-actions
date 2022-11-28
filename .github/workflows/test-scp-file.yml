@@ -20,12 +20,13 @@ jobs:
     steps:
       - name: Packet Project
         run: |
-          mkdir -p A
-          mkdir -p B
-          mkdir -p C
-          echo ${{ github.sha }} > A/sha
-          echo ${{ github.sha }} > B/sha
-          echo ${{ github.sha }} > C/sha
+          mkdir -p packet/A
+          mkdir -p packet/B
+          mkdir -p packet/C
+          echo ${{ github.sha }} > packet/A/sha
+          echo ${{ github.sha }} > packet/B/sha
+          echo ${{ github.sha }} > packet/C/sha
+          cd packet
 
       - name: Upload Packet
         uses: appleboy/scp-action@master
