@@ -13,7 +13,13 @@ name: learn-github-actions
 ## This example uses the push event, so a workflow run is triggered every time someone pushes a change to the repository or merges a pull request.
 ## This is triggered by a push to every branch;
 ## for examples of syntax that runs only on pushes to specific branches, paths, or tags, see "Workflow syntax for GitHub Actions."
-on: [push]
+on:
+  workflow_dispatch:
+  push:
+    branches: [develop]
+
+permissions:
+  contents: read
 
 env:
   AWS_REGION: ap-northeast-1 # set this to your preferred AWS region, e.g. us-west-1
