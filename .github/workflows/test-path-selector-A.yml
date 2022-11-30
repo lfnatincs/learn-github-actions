@@ -1,0 +1,23 @@
+name: Test Path Selector Project A
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "!projectB/*"
+
+permissions:
+  contents: read
+
+jobs:
+  command-execute:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+
+      - name: command
+        run: |
+          bash ${{github.workspace}}/projectA/projectA.sh

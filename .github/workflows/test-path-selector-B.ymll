@@ -1,12 +1,11 @@
-name: Test Path Selector
+name: Test Path Selector Project B
 
 on:
   workflow_dispatch:
   push:
-    branches: [develop]
+    branches: [main]
     paths:
-      - projectA/*
-      - projectC/*
+      - "!projectA/*"
 
 permissions:
   contents: read
@@ -21,4 +20,4 @@ jobs:
 
       - name: command
         run: |
-          bash ${{github.workspace}}/projectA/projectA.sh
+          bash ${{github.workspace}}/projectB/projectB.sh
