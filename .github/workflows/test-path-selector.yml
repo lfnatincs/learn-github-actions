@@ -21,4 +21,4 @@ jobs:
 
       - name: command
         run: |
-          bash ${{ github.workflow }}/projectA/projectA.sh
+          bash ${{github.workspace}}/projectA/projectA.sh
