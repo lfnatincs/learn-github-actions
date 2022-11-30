@@ -3,8 +3,10 @@ name: Push Trigger Project B Command
 on:
   workflow_dispatch:
   push:
+    branches:
+      - develop
     paths-ignore:
-      - "!projectA/**"
+      - "projectA/**"
 
 permissions:
   contents: read
