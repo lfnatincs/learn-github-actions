@@ -3,8 +3,6 @@ name: Push Trigger Project B Command
 on:
   workflow_dispatch:
   push:
-    branches:
-      - main
     paths-ignore:
       - "!projectA/**"
 
@@ -13,6 +11,7 @@ permissions:
 
 jobs:
   command-execute:
+    if: ${{ github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-latest
 
     steps:
