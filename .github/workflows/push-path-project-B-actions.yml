@@ -1,11 +1,11 @@
-name: Test Path Selector Project B
+name: Push Trigger Project B Command
 
 on:
   workflow_dispatch:
   push:
     branches: [main]
     paths:
-      - "!projectA/*"
+      - "!projectA/**"
 
 permissions:
   contents: read
