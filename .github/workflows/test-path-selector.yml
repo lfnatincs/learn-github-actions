@@ -1,0 +1,21 @@
+name: Test Path Selector
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - projectA/*
+
+permissions:
+  contents: read
+
+jobs:
+  configure-aws-credentials:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: command
+        run: |
+          whoami
+          ll

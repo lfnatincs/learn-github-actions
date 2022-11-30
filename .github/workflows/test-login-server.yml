@@ -3,7 +3,7 @@ name: Test Login Server
 on:
   workflow_dispatch:
   push:
-    branches: [main]
+    branches: [develop]
 
 permissions:
   contents: read
