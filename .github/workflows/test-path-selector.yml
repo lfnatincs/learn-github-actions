@@ -11,11 +11,10 @@ permissions:
   contents: read
 
 jobs:
-  configure-aws-credentials:
+  command-execute:
     runs-on: ubuntu-latest
 
     steps:
       - name: command
         run: |
-          whoami
           ll
