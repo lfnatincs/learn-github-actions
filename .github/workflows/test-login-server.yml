@@ -3,14 +3,15 @@ name: Test Login Server
 on:
   workflow_dispatch:
   push:
-    branches: [develop]
+    branches: [main]
 
 permissions:
   contents: read
 
 env:
-  SERVER_USER: "ec2-user"
+  SERVER_USER: ec2-user
   SERVER_HOST: ec2-13-113-14-216.ap-northeast-1.compute.amazonaws.com
+  SHELL_PATH: ~/.packet/date.sh
 
 jobs:
   deploy:
@@ -25,4 +26,4 @@ jobs:
           username: ${{ env.SERVER_USER }}
           key: ${{ secrets.AWS_EC2_PRIVATE_KEY }}
           script: |
-            bash ~/.packet/date.sh
+            bash ${{ env.SHELL_PATH }}
