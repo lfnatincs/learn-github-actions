@@ -16,6 +16,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: checkout
+        uses: actions/checkout@v3
+
       - name: command
         run: |
           bash ${{ github.workflow }}/projectA/projectA.sh
