@@ -8,10 +8,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      - name: tar
+        run: |
+          tar -czvf  github.tar.gz .github
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
           name: 版本发布
           draft: true
           body_path: Release.md
-          files: ${{ github.workspace }}-CHANGELOG.txt
+          files: github.tar.gz
