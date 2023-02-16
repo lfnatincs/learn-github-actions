@@ -19,6 +19,6 @@ jobs:
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
         with:
-          name: ${{ github.ref }} ${{ steps.version.outputs.version }}
+          name: ${{ steps.version.outputs.version }}版本发布
           files: github.tar.gz
           body_path: Release.md
