@@ -11,13 +11,14 @@ jobs:
       - name: tar
         run: |
           tar -czvf  github.tar.gz .github
-      - name: echo
+      - id: version
+      - name: version
         run: |
-          echo ${{ github.ref }} | awk -F/ '{print $3}'
+          echo version=$(echo ${{ github.ref }} | awk -F/  '{print $3}') >> $GITHUB_OUTPUT
       - name: Release
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
         with:
-          name: ${{ github.ref }} 版本发布
+          name: ${{ github.ref }} ${{ steps.version.outputs.version }}
           files: github.tar.gz
           body_path: Release.md
