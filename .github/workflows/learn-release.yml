@@ -12,7 +12,7 @@ jobs:
         run: |
           tar -czvf  github.tar.gz .github
       - id: version
-      - name: version
+        name: version
         run: |
           echo version=$(echo ${{ github.ref }} | awk -F/  '{print $3}') >> $GITHUB_OUTPUT
       - name: Release
