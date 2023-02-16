@@ -11,6 +11,10 @@ jobs:
       - name: tar
         run: |
           tar -czvf  github.tar.gz .github
+      - name: echo
+        run: |
+          echo ${{ github.ref }}
+          echo ${{ github.head_ref }}
       - name: Release
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
